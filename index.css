@@ -1,0 +1,447 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        #cursor {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: #95C11E;
+            position: fixed;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        #cursor-blur {
+            height: 400px;
+            width: 400px;
+            border-radius: 50%;
+            background-color: #aee6148b;
+            position: fixed;
+            filter: blur(100px);
+            z-index: 9;
+            pointer-events: none;
+        }
+
+        #nav {
+            height: 120px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 100px;
+            gap: 80px;
+            position: fixed;
+            z-index: 99;
+        }
+
+        #nav img {
+            height: 75px;
+        }
+
+        #nav a {
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        video {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: fixed;
+            z-index: -1;
+        }
+
+        #main {
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.424);
+            overflow-x: hidden;
+        }
+
+        .page {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            z-index: 10;
+            padding: 120px 20px 50px 20px;
+        }
+
+        /* Hero Section Styling */
+        #page1 {
+            perspective: 1000px;
+            /* For 3D parallax effect */
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap-reverse;
+            /* Photo appears first on mobile */
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        #page1 h1 {
+            font-size: 6vw;
+            font-weight: 900;
+            position: relative;
+        }
+
+        #page1 h1::before {
+            content: "Nilardri Pramanick";
+            position: absolute;
+            color: black;
+            top: -4px;
+            left: -4px;
+            -webkit-text-stroke: 2px #95C11E;
+            z-index: -1;
+        }
+
+        #page1 h2 {
+            font-size: 2vw;
+            font-weight: 1000;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            max-height: 300px;
+            min-width: 150px;
+            min-height: 150px;
+            border: 5px solid #95C11E;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .resume-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #95C11E;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .resume-btn:hover {
+            background-color: #bbff00;
+            transform: scale(1.05);
+        }
+
+        /* General Section Title */
+        .section-title {
+            font-size: 4vw;
+            font-weight: 900;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #95C11E;
+            padding-bottom: 10px;
+        }
+
+        #scroller {
+            white-space: nowrap;
+            overflow-x: auto;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        #scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        #scroller-in {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 160s linear infinite;
+            animation-name: scroll;
+
+        }
+
+        #scroller h4 {
+            display: inline-flex;
+            align-items: center;
+            gap: 40px;
+            font-size: 100px;
+            font-weight: 900;
+            -webkit-text-stroke: 2px #ffffff;
+            color: transparent;
+            transition: color 0.5s ease;
+            margin-right: 30px;
+        }
+
+        #scroller h4:hover {
+            color: #95C11E;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        #about-us {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            padding: 0 50px;
+            margin-top: 100px;
+        }
+
+        #about-us img {
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #95C11E;
+        }
+
+        #about-us-in {
+            width: 50%;
+            text-align: left;
+        }
+
+        #about-us-in h3 {
+            font-size: 40px;
+            font-weight: 1000;
+            margin-bottom: 20px;
+        }
+
+        #about-us-in p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .projects-container,
+        .hackathon-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+        }
+
+        .project-card,
+        .hackathon-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .project-card:hover,
+        .hackathon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3,
+        .hackathon-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #95C11E;
+        }
+
+        .project-card p,
+        .hackathon-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-links a,
+        .hackathon-card a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 20px;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom-color 0.3s ease;
+        }
+
+        .project-links a:hover,
+        .hackathon-card a:hover {
+            border-bottom-color: #95C11E;
+        }
+
+        .contact-form {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-size: 16px;
+            color: #fff;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-form button {
+            padding: 15px;
+            background-color: #95C11E;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #bbff00;
+        }
+
+        .footer {
+            width: 100%;
+            padding: 40px 0;
+            text-align: center;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            margin: 0 15px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        .social-links svg {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 1024px) {
+            #nav {
+                padding: 0 50px;
+            }
+
+            #page1 h1 {
+                font-size: 8vw;
+            }
+
+            #page1 h2 {
+                font-size: 3vw;
+            }
+
+            .section-title {
+                font-size: 6vw;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #nav {
+                padding: 0 20px;
+                justify-content: space-between;
+            }
+
+            #nav img {
+                height: 60px;
+            }
+
+            #nav a {
+                display: none;
+            }
+
+            /* Hide nav links on mobile, can be replaced with a hamburger menu */
+
+            #page1 h1 {
+                font-size: 10vw;
+                text-align: center;
+            }
+
+            #page1 h2 {
+                font-size: 4.5vw;
+                text-align: center;
+            }
+
+            .hero-container {
+                gap: 20px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            #about-us {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            #about-us-in {
+                width: 90%;
+                text-align: center;
+            }
+
+            #about-us-in h3 {
+                font-size: 30px;
+            }
+
+            #about-us-in p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 8vw;
+            }
+
+            #scroller h4 {
+                font-size: 60px;
+            }
+        }
+    
